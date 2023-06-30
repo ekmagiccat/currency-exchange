@@ -1,4 +1,35 @@
-# Simplified Webpack Setup
+# Currency Exchanger
+
+#### Description:
+
+#### By Eva Kemp
+
+## Technologies Used
+
+- CSS
+- JavaScript
+- HTML
+- Node
+- webpack
+- esLint
+- babel
+- jest
+
+## Description
+
+An application that takes a user's inputted USD amount and returns the amount in a different currency of their choice.
+
+## Setup/Installation Requirements
+
+Clone project:
+
+- Clone the repository from GitHub by navigating to the main page of the repository.
+- Above the list of files on the repository, click "Code".
+- Then click "Download ZIP".
+- After downloading, open the file.
+- Navigate to "index.html". Then open the file in your browser of choice for viewing.
+
+Then, download Webpack Setup:
 
 **This was written for Node version 16, if you have a different version of Node, this will not work. See the bottom of this file for more information**
 
@@ -318,53 +349,33 @@ And the final `package.json`:
 
 ```
 
-Some things to keep in mind:
+After adding these things, run `npm run build` in the terminal to bundle your js code.
 
-All your source code, the code that you write, will primarily happen in the `src` folder. All your JS, HTML, CSS, and assets all belong in in the `src` folder.
+## Known Bugs
 
-For testing:
+- The UI isn't complete or functioning for users to input an age.
+- The other input boxes are currently hidden and haven't been programmed to be revealed.
 
-All files that contain our tests will go in the `__tests__` directory. The naming syntax is `{nameOfFileWeAreTesting}.test.js`. Naming is important here, as Jest will specifically look for tests in the `__tests__` directory, that have that naming syntax.
+## License
 
-Once you have a solid template setup, you likely won't need to touch any of the files outside of the `src` or `__tests__` directories.
+MIT License
 
-## Common Troubleshooting:
+Copyright (c) _06/30/2023_ Eva Kemp
 
-If you are getting an error that looks like this:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-`error:0308010C:digital envelope routines::unsupported`
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Or any errors that mention an `SSL`, make sure you are on Node version 16.
-
-## If you are using the latest version of Node:
-
-You can follow the guide as is, but there are a couple changes you will need to make.
-
-- When installing packages, do not include any version numbers, and instead download the latest version of all packages.
-  For example, instead of running this command:
-
-  `npm install webpack-cli@3.3.12 --save-dev`
-
-  You won't include the `@3.3.12`. The command will now look like this:
-
-  `npm install webpack-cli --save-dev`
-
-- You do not need to install or configure File Loader
-
-- You will need to change the `devServer` config of `webpack.config.js`. Instead of this:
-
-```
-  devServer: {
-    contentBase: "./dist",
-  },
-```
-
-You will replace that with this:
-
-```
-devServer: {
-  static: {
-    directory: path.join(__dirname, "dist"),
-  },
-}
-```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
