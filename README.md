@@ -27,13 +27,9 @@ Clone project:
 - Above the list of files on the repository, click "Code".
 - Then click "Download ZIP".
 - After downloading, open the file.
-- Navigate to "index.html". Then open the file in your browser of choice for viewing.
-
-Then, download Webpack Setup:
+- Then, download Webpack Setup:
 
 **This was written for Node version 16, if you have a different version of Node, this will not work. See the bottom of this file for more information**
-
-There are a lot of commands to run, and a lot of things to install and configure, here are the essentials of what you will need to do:
 
 First we will begin by initializing `npm`, run this command in your terminal, in the directory of your template:
 
@@ -346,15 +342,16 @@ And the final `package.json`:
     "webpack-dev-server": "3.11.3"
   }
 }
-
 ```
 
-After adding these things, run `npm run build` in the terminal to bundle your js code.
+- Then, run `npm install` in the root level of the project.
+- After adding these things, run `npm run build` in the terminal to bundle your js code.
+- To test code, run `npm run test` in the terminal of your project.
+- To view the live server of the project, run `npm run start` in the terminal. The project will open in your default browser and update as your make changes.
 
 ## Known Bugs
 
-- The UI isn't complete or functioning for users to input an age.
-- The other input boxes are currently hidden and haven't been programmed to be revealed.
+- TBD
 
 ## License
 
