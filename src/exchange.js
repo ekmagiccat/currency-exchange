@@ -1,22 +1,19 @@
-
-
-
-/* export default class Cocktail {
-  static async getCocktail(ingredient) {
+export default class Exchange {
+  static async getExchange(currency) {
     try {
       const response = await fetch(
-        `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`
+        `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/${currency}`
       );
       const jsonifiedResponse = await response.json();
-      if (jsonifiedResponse.drinks && jsonifiedResponse.drinks.length > 0) {
-        const drinks = jsonifiedResponse.drinks;
-        const cocktailNames = drinks.map((drink) => drink.strDrink);
-        return cocktailNames;
+      if (jsonifiedResponse.rates && jsonifiedResponse.rates.length > 0) {
+        const rates = jsonifiedResponse.rates;
+        const currencyNames = rates.map((rate) => rate.conversion_rates);
+        return currencyNames;
       } else {
-        throw new Error("No cocktails found");
+        throw new Error("No exchange rates found");
       }
     } catch (error) {
-      throw new Error(`Error accessing the drink data: ${error}`);
+      throw new Error(`Error accessing the currency data: ${error}`);
     }
   }
-} */
+}

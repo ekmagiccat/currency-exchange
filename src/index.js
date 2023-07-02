@@ -1,45 +1,45 @@
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/styles.css";
-// import Cocktail from "./cocktails.js";
+import Exchange from "./exchange.js";
 
-/* Business Logic
+// Business Logic
 
-async function getCocktail(ingredient) {
-  const response = await Cocktail.getCocktail(ingredient);
+async function getExchange(currency) {
+  const response = await Exchange.getExchange(currency);
   if (response && response.length > 0) {
-    printElements(response, ingredient);
+    printElements(response, currency);
   } else {
-    printError("No cocktails found", ingredient);
+    printError("Currency exchange rate not available", currency);
   }
 }
 
 // UI Logic
-function printElements(response, ingredient) {
+function printElements(response, currency) {
   const ul = document.createElement("ul");
 
-  response.forEach((drink) => {
+  response.forEach((money) => {
     const li = document.createElement("li");
-    li.innerText = drink;
+    li.innerText = money;
     ul.appendChild(li);
   });
 
   const showResponse = document.querySelector("#showResponse");
-  showResponse.innerText = `Potential cocktails made with ${ingredient} are:`;
+  showResponse.innerText = `Current exchange rates for ${currency} are:`;
   showResponse.appendChild(ul);
 }
 
-function printError(error, ingredient) {
+function printError(error, currency) {
   document.querySelector(
     "#showResponse"
-  ).innerText = `There was an error accessing the drink data for ${ingredient}: ${error}.`;
+  ).innerText = `There was an error accessing data for ${currency}: ${error}.`;
 }
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const ingredient = document.querySelector("#liquor").value;
-  document.querySelector("#liquor").value = null;
-  getCocktail(ingredient);
+  const currency = document.querySelector("#usd").value;
+  document.querySelector("#usd").value = null;
+  getExchange(currency);
 }
 
 window.addEventListener("load", function () {
@@ -47,4 +47,3 @@ window.addEventListener("load", function () {
     .querySelector("form")
     .addEventListener("submit", handleFormSubmission);
 });
-*/
