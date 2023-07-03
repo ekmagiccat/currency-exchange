@@ -5,28 +5,31 @@ import Exchange from "./exchange.js";
 
 // Business Logic
 
-async function getExchange(currency) {
-  const response = await Exchange.getExchange(currency);
-  if (response && response.length > 0) {
-    printElements(response, currency);
+async function getExchange(currencyType) {
+  const response = await Exchange.getExchange(currencyType);
+  if (response.main) {
+    printElements(response, currencyType);
   } else {
-    printError("Currency exchange rate not available", currency);
+    printError(response, currencyType);
   }
 }
 
 // UI Logic
-function printElements(response, currency) {
-  const ul = document.createElement("ul");
+document.getElementById("exchange").addEventListener("click", function (event) {
+  event.preventDefault();
+  const currencyType = document.getElementById("currencyType").value;
+  const usdAmount = parseFloat(document.getElementById("usd").value);
+  handleExchangeRate(currencyType, usdAmount);
+});
 
-  response.forEach((money) => {
-    const li = document.createElement("li");
-    li.innerText = money;
-    ul.appendChild(li);
-  });
+function handleExchangeRate(currencyType, usdAmount) {
+  console.log(`Currency: ${currencyType}, USD Amount: ${usdAmount}`);
+}
 
-  const showResponse = document.querySelector("#showResponse");
-  showResponse.innerText = `Current exchange rates for ${currency} are:`;
-  showResponse.appendChild(ul);
+function printElements(response, currencyType) {
+  document.querySelector(
+    "#showResponse"
+  ).innerText = `${currencyType} is ${response.main.conversion_rates}`;
 }
 
 function printError(error, currency) {
@@ -35,15 +38,13 @@ function printError(error, currency) {
   ).innerText = `There was an error accessing data for ${currency}: ${error}.`;
 }
 
-function handleFormSubmission(event) {
-  event.preventDefault();
-  const currency = document.querySelector("#usd").value;
-  document.querySelector("#usd").value = null;
-  getExchange(currency);
-}
+// function handleFormSubmission(event) {
+//  event.preventDefault();
+//  const currency = document.querySelector("#usd").value;
+//  document.querySelector("#usd").value = null;
+//  getExchange(currency);
+// }
 
 window.addEventListener("load", function () {
-  document
-    .querySelector("form")
-    .addEventListener("submit", handleFormSubmission);
+  document.querySelector("form").addEventListener("submit", handleExchangeRate);
 });
