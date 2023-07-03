@@ -5,11 +5,10 @@ import Exchange from "./exchange.js";
 
 // Business Logic
 
-async function getExchange(currencyType, usdAmount) {
-  console.log(`Currency: ${currencyType}, USD Amount: ${usdAmount}`);
+async function getExchange(currencyType) {
   try {
     const response = await Exchange.getExchange(currencyType);
-    if (response.main) {
+    if (response.conversion_rates) {
       printElements(response, currencyType);
     } else {
       printError(response, currencyType);
@@ -30,7 +29,7 @@ document.getElementById("exchange").addEventListener("click", async (event) => {
 function printElements(response, currencyType) {
   document.querySelector(
     "#showResponse"
-  ).innerText = `${currencyType} is ${response.main.conversion_rates}`;
+  ).innerText = `${response.conversion_rates} ${currencyType}`;
 }
 
 function printError(error, currency) {

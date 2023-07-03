@@ -351,13 +351,13 @@ And the final `package.json`:
 
 ## Known Bugs
 
-- TBD
+- The application has an error message when accessing currency conversion rates.
 
 ## License
 
 MIT License
 
-Copyright (c) _06/30/2023_ Eva Kemp
+Copyright (c) _07/03/2023_ Eva Kemp
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
