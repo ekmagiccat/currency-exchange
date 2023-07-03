@@ -5,13 +5,12 @@ export default class Exchange {
         `https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`
       );
       const jsonifiedResponse = await response.json();
-      if (jsonifiedResponse.rates >= 0) {
-        const rates = jsonifiedResponse.conversion_rates;
-        const currencyNames = rates.map((rate) => rate.conversion_rates);
-        return currencyNames;
-      } else {
-        throw new Error("No exchange rates found");
+      if (!response.ok) {
+        const errorMessage = `${response.status} ${response.statusText}
+        ${jsonifiedResponse.message}`;
+        throw new Error(errorMessage);
       }
+      return jsonifiedResponse;
     } catch (error) {
       throw new Error(`Error accessing the currency data: ${error}`);
     }
