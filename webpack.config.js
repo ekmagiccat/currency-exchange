@@ -15,6 +15,7 @@ module.exports = {
   },
   devtool: "eval-source-map",
   plugins: [
+    new Dotenv(),
     new ESLintPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -22,7 +23,6 @@ module.exports = {
       template: "./src/index.html",
       inject: "body",
     }),
-    new Dotenv(),
   ],
   module: {
     rules: [
