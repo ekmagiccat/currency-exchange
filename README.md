@@ -4,7 +4,7 @@
 
 ## **Technologies Used**
 
-- RapidAPI integration
+- ExchangeRate-API integration
 - Asyncronous programming
 - JavaScript
 - CSS
