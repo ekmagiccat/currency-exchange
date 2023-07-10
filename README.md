@@ -4,16 +4,32 @@
 
 #### By Eva Kemp
 
-## Technologies Used
+## **Technologies Used**
 
-- CSS
+- RapidAPI integration
+- Asyncronous programming
 - JavaScript
+- CSS
 - HTML
-- Node
-- webpack
-- esLint
-- babel
-- jest
+- VS Code
+- git
+- GitHub
+- Node Package Manager (npm)
+- JSON
+- Babel (v7.18.6)
+- EsLint v(8.18.0)
+- Jest (v24.9.0)
+- Bootstrap (v5.3.0)
+- webpack (v5.0.0)
+  - webpack-cli (v5.0.0)
+  - webpack-dev-server (v4.0.0)
+  - clean-webpack-plugin (v3.0.0)
+  - dotenv-webpack (v2.0.0)
+- Loaders
+  - css-loader (v3.6.0)
+  - file-loader (v6.2.0)
+  - html-loader (v1.3.2)
+  - style-loader (v1.3.0)
 
 ## Description
 
@@ -27,6 +43,12 @@ Clone project:
 - Above the list of files on the repository, click "Code".
 - Then click "Download ZIP".
 - After downloading, open the file.
+- Get API key
+  - Navigate to [ExchangeRate-API](https://app.exchangerate-api.com/)
+  - Sign up with a free trial of the Pro Plan to get a free API key for two weeks. You may pay for additional time as desired.
+- Once you have received your API Key: at the root directory, create a `.env` file and enter:
+  - `API_KEY=<paste_your_api_key_here>`<br>
+    make sure to remove the angle brackets as well as any whitespaces or extra punctuation.
 - Then, download Webpack Setup:
 
 **This was written for Node version 16, if you have a different version of Node, this will not work. See the bottom of this file for more information**
