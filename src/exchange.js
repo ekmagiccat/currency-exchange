@@ -1,4 +1,7 @@
 export default class Exchange {
+  constructor(currencyType) {
+    this.currencyType = currencyType;
+  }
   static async getExchange() {
     try {
       const response = await fetch(
