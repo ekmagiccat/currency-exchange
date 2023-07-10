@@ -40,9 +40,9 @@ async function printElements(response, currencyType, usdAmount) {
     } ${currencyType}`;
   }
   if (selectedCurrency === "Chilean Peso") {
-    document.querySelector(
-      "#showResponse"
-    ).innerText = ` $${usdAmount} = ${chileRate * usdAmount} ${currencyType}`;
+    document.querySelector("#showResponse").innerText = ` $${usdAmount} = ${
+      chileRate * usdAmount
+    } ${currencyType}`;
   }
   if (selectedCurrency === "British Pound") {
     document.querySelector("#showResponse").innerText = ` $${usdAmount} = ${

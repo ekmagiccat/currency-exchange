@@ -1,6 +1,4 @@
-# Currency Exchanger
-
-#### Description:
+# &#x128181; Currency Exchanger &#x128182;
 
 #### By Eva Kemp
 
@@ -373,7 +371,7 @@ And the final `package.json`:
 
 ## Known Bugs
 
-- The application has an error message when accessing currency conversion rates.
+- The application allows for some non-number inputs that result in a NaN response.
 
 ## License
 
