@@ -27,15 +27,38 @@ document.getElementById("exchange").addEventListener("click", async (event) => {
 });
 
 async function printElements(response, currencyType, usdAmount) {
-  const euroRate = response.conversion_rates.EUR;
-  const chileRate = response.conversion_rates.CLP;
-  const poundRate = response.conversion_rates.GBP;
-  const japanRate = response.conversion_rates.JPY;
-  const icelandRate = response.conversion_rates.ISK;
+  let selectedCurrency = document.getElementById("currencyType").value;
+  let euroRate = response.conversion_rates.EUR;
+  let chileRate = response.conversion_rates.CLP;
+  let poundRate = response.conversion_rates.GBP;
+  let japanRate = response.conversion_rates.JPY;
+  let icelandRate = response.conversion_rates.ISK;
 
-  document.querySelector(
-    "#showResponse"
-  ).innerText = ` $${usdAmount} = ${euroRate} ${currencyType}`;
+  if (selectedCurrency === "Euro") {
+    document.querySelector(
+      "#showResponse"
+    ).innerText = ` $${usdAmount} = ${euroRate} ${currencyType}`;
+  }
+  if (selectedCurrency === "Chilean Peso") {
+    document.querySelector(
+      "#showResponse"
+    ).innerText = ` $${usdAmount} = ${chileRate} ${currencyType}`;
+  }
+  if (selectedCurrency === "British Pound") {
+    document.querySelector(
+      "#showResponse"
+    ).innerText = ` $${usdAmount} = ${poundRate} ${currencyType}`;
+  }
+  if (selectedCurrency === "Japanese Yen") {
+    document.querySelector(
+      "#showResponse"
+    ).innerText = ` $${usdAmount} = ${japanRate} ${currencyType}`;
+  }
+  if (selectedCurrency === "Icelandic Krona") {
+    document.querySelector(
+      "#showResponse"
+    ).innerText = ` $${usdAmount} = ${icelandRate} ${currencyType}`;
+  }
 }
 
 async function printError(error, currency) {
