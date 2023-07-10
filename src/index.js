@@ -5,16 +5,16 @@ import Exchange from "./exchange.js";
 
 // Business Logic
 
-async function getExchange(currencyType) {
+async function getExchange(currencyType, usdAmount) {
   try {
-    const response = await Exchange.getExchange(currencyType);
+    const response = await Exchange.getExchange(currencyType, usdAmount);
     if (response.conversion_rates) {
-      printElements(response, currencyType);
+      printElements(response, currencyType, usdAmount);
     } else {
-      printError(response, currencyType);
+      printError(response, currencyType, usdAmount);
     }
   } catch (error) {
-    printError(error, currencyType);
+    printError(error, currencyType, usdAmount);
   }
 }
 
@@ -26,13 +26,19 @@ document.getElementById("exchange").addEventListener("click", async (event) => {
   await getExchange(currencyType, usdAmount);
 });
 
-function printElements(response, currencyType) {
+async function printElements(response, currencyType, usdAmount) {
+  const euroRate = response.conversion_rates.EUR;
+  const chileRate = response.conversion_rates.CLP;
+  const poundRate = response.conversion_rates.GBP;
+  const japanRate = response.conversion_rates.JPY;
+  const icelandRate = response.conversion_rates.ISK;
+
   document.querySelector(
     "#showResponse"
-  ).innerText = `${response.conversion_rates} ${currencyType}`;
+  ).innerText = ` $${usdAmount} = ${euroRate} ${currencyType}`;
 }
 
-function printError(error, currency) {
+async function printError(error, currency) {
   document.querySelector(
     "#showResponse"
   ).innerText = `There was an error accessing data for ${currency}: ${error}.`;

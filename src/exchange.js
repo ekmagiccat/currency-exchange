@@ -1,6 +1,7 @@
 export default class Exchange {
-  constructor(currencyType) {
+  constructor(currencyType, usdAmount) {
     this.currencyType = currencyType;
+    this.usdAmount = usdAmount;
   }
   static async getExchange() {
     try {
