@@ -1,4 +1,4 @@
-# &#x128181; Currency Exchanger &#x128182;
+# &#128181; Currency Exchanger &#128182;
 
 #### By Eva Kemp
 
